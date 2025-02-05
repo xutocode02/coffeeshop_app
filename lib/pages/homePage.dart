@@ -12,7 +12,10 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  final List<Widget> _pages = [const ShopPage(), const CartPage()];
+  final List<Widget> _pages = [
+    ShopPage(),
+    const CartPage(),
+  ];
 
   int _selectedIndex = 0;
 

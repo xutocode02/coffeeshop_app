@@ -1,5 +1,7 @@
+import 'package:coffeeshop/models/coffee_shop.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeshop/pages/homePage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +13,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: Homepage(),
+    return ChangeNotifierProvider(
+      create: (context) => CoffeeShop(),
+      builder: (context, child) => const MaterialApp(
+        title: 'Flutter Demo',
+        home: Homepage(),
+      ),
     );
   }
 }
