@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coffeeshop/homePage.dart';
+import 'package:coffeeshop/pages/homePage.dart';
 
 void main() {
   runApp(const MyApp());
