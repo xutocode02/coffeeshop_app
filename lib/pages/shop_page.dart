@@ -6,12 +6,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ShopPage extends StatelessWidget {
-  ShopPage({super.key});
+  const ShopPage({super.key});
 
-  CoffeeShop coffeeShop = CoffeeShop();
+  // CoffeeShop coffeeShop = CoffeeShop();
 
   @override
   Widget build(BuildContext context) {
+    void tapOnTile(Coffee coffee) {
+      Navigator.pushNamed(
+        context,
+        "/quantity",
+        arguments: {
+          "coffee": coffee,
+        },
+      );
+    }
+
     return Consumer<CoffeeShop>(
         builder: (context, value, child) => Scaffold(
               backgroundColor: backgroundColor,
@@ -42,7 +52,12 @@ class ShopPage extends StatelessWidget {
                           itemCount: value.coffeeShop.length,
                           itemBuilder: (context, index) {
                             Coffee eachCoffee = value.coffeeShop[index];
-                            return CoffeeTile(eachCoffee: eachCoffee);
+                            return CoffeeTile(
+                              eachCoffee: eachCoffee,
+                              onTap: () {
+                                tapOnTile(eachCoffee);
+                              },
+                            );
                           },
                           separatorBuilder: (context, index) {
                             return const SizedBox(height: 15);

@@ -1,4 +1,5 @@
 import 'package:coffeeshop/models/coffee_shop.dart';
+import 'package:coffeeshop/pages/quantity_page.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeshop/pages/homePage.dart';
 import 'package:provider/provider.dart';
@@ -15,9 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => CoffeeShop(),
-      builder: (context, child) => const MaterialApp(
+      builder: (context, child) => MaterialApp(
         title: 'Flutter Demo',
-        home: Homepage(),
+        initialRoute: "/home",
+        routes: {
+          "/home": (context) => const Homepage(),
+          "/quantity": (context) => const QuantityPage(),
+        },
       ),
     );
   }
