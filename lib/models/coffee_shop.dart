@@ -7,21 +7,29 @@ class CoffeeShop extends ChangeNotifier {
       name: "Black Coffee",
       price: "\$3.00",
       imagePath: "assets/icons/coffee.png",
+      size: "S",
+      quantity: "1",
     ),
     Coffee(
       name: "Espresso",
       price: "\$2.00",
       imagePath: "assets/icons/expresso.png",
+      size: "S",
+      quantity: "1",
     ),
     Coffee(
       name: "Iced Coffee",
       price: "\$4.00",
       imagePath: "assets/icons/ice-coffee.png",
+      size: "S",
+      quantity: "1",
     ),
     Coffee(
       name: "Iced Latte",
       price: "\$5.00",
       imagePath: "assets/icons/iced-latte.png",
+      size: "S",
+      quantity: "1",
     ),
   ];
 

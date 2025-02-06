@@ -32,15 +32,16 @@ class _QuantityPageState extends State<QuantityPage> {
     }
 
     void addToCart(Coffee coffee) {
+      // gotta revise these lines when actually adding to cart
+      // coffee.size = selectedSize;
+      // coffee.quantity = quantity.toString();
       var coffeeShop = Provider.of<CoffeeShop>(context, listen: false);
       Coffee currCoffee = Coffee(
         name: coffee.name,
         price: coffee.price,
         imagePath: coffee.imagePath,
-        sizeAndQuantity: {
-          "size": selectedSize,
-          "quantity": quantity,
-        },
+        size: selectedSize,
+        quantity: quantity.toString(),
       );
 
       coffeeShop.addToCart(currCoffee);
