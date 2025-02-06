@@ -32,7 +32,18 @@ class _QuantityPageState extends State<QuantityPage> {
     }
 
     void addToCart(Coffee coffee) {
-      Provider.of<CoffeeShop>(context, listen: false).addToCart(coffee);
+      var coffeeShop = Provider.of<CoffeeShop>(context, listen: false);
+      Coffee currCoffee = Coffee(
+        name: coffee.name,
+        price: coffee.price,
+        imagePath: coffee.imagePath,
+        sizeAndQuantity: {
+          "size": selectedSize,
+          "quantity": quantity,
+        },
+      );
+
+      coffeeShop.addToCart(currCoffee);
     }
 
     return Consumer<CoffeeShop>(
@@ -80,11 +91,20 @@ class _QuantityPageState extends State<QuantityPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "-",
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 35,
+                  GestureDetector(
+                    onTap: () {
+                      if (quantity > 1) {
+                        setState(() {
+                          quantity--;
+                        });
+                      }
+                    },
+                    child: Text(
+                      "-",
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 35,
+                      ),
                     ),
                   ),
                   Container(
@@ -107,11 +127,18 @@ class _QuantityPageState extends State<QuantityPage> {
                       ),
                     ),
                   ),
-                  Text(
-                    "+",
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 30,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        quantity++;
+                      });
+                    },
+                    child: Text(
+                      "+",
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 30,
+                      ),
                     ),
                   ),
                 ],
