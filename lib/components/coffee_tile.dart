@@ -5,10 +5,14 @@ class CoffeeTile extends StatelessWidget {
   CoffeeTile({
     super.key,
     required this.eachCoffee,
+    required this.subtitle,
     required this.onTap,
+    required this.icon,
   });
 
   final Coffee eachCoffee;
+  final String subtitle;
+  final Icon icon;
   void Function() onTap;
 
   @override
@@ -34,12 +38,12 @@ class CoffeeTile extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            eachCoffee.price,
+            subtitle,
             style: TextStyle(
               color: Colors.grey[700],
             ),
           ),
-          trailing: const Icon(Icons.arrow_forward_sharp),
+          trailing: icon,
         ),
       ),
     );

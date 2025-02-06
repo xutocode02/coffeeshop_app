@@ -1,4 +1,5 @@
 import 'package:coffeeshop/components/coffee_tile.dart';
+import 'package:coffeeshop/components/standard_app_bar.dart';
 import 'package:coffeeshop/const.dart';
 import 'package:coffeeshop/models/coffee.dart';
 import 'package:coffeeshop/models/coffee_shop.dart';
@@ -25,10 +26,7 @@ class ShopPage extends StatelessWidget {
     return Consumer<CoffeeShop>(
         builder: (context, value, child) => Scaffold(
               backgroundColor: backgroundColor,
-              appBar: AppBar(
-                backgroundColor: backgroundColor,
-                leading: const Icon(Icons.menu),
-              ),
+              appBar: const StandardAppBar(),
               body: Padding(
                 padding: const EdgeInsets.only(
                   left: 20,
@@ -54,6 +52,8 @@ class ShopPage extends StatelessWidget {
                             Coffee eachCoffee = value.coffeeShop[index];
                             return CoffeeTile(
                               eachCoffee: eachCoffee,
+                              subtitle: eachCoffee.price,
+                              icon: const Icon(Icons.arrow_forward_sharp),
                               onTap: () {
                                 tapOnTile(eachCoffee);
                               },
