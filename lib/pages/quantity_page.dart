@@ -52,7 +52,10 @@ class _QuantityPageState extends State<QuantityPage> {
         size: selectedSize,
         quantity: quantity.toString(),
       );
+
       coffeeShop.addToCart(currCoffee);
+      // show dialog and pop back to previous screen afterwards
+      showSuccessDialog(context);
     }
 
     return Consumer<CoffeeShop>(
@@ -202,5 +205,34 @@ class _QuantityPageState extends State<QuantityPage> {
         ),
       ),
     );
+  }
+
+  void showSuccessDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const Dialog(
+          backgroundColor: Colors.brown,
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Text(
+              "Successfully added to cart",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      },
+    );
+
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.of(context).pop();
+      Navigator.pop(context);
+    });
   }
 }
