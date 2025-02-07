@@ -1,4 +1,4 @@
-import 'package:coffeeshop/components/coffee_tile.dart';
+import 'package:coffeeshop/components/cart_coffee_tile.dart';
 import 'package:coffeeshop/components/standard_app_bar.dart';
 import 'package:coffeeshop/components/standard_button.dart';
 import 'package:coffeeshop/const.dart';
@@ -49,10 +49,10 @@ class CartPage extends StatelessWidget {
                             itemCount: value.userCart.length,
                             itemBuilder: (context, index) {
                               Coffee eachCoffee = value.userCart[index];
-                              return CoffeeTile(
+                              return CartCoffeeTile(
                                 eachCoffee: eachCoffee,
-                                subtitle:
-                                    "Size: ${eachCoffee.size} || Qty: ${eachCoffee.quantity}",
+                                subtitle: "Size: ${eachCoffee.size} || Qty: ",
+                                quantity: eachCoffee.quantity,
                                 icon: const Icon(Icons.delete),
                                 onTap: () {
                                   subtractCoffee(coffee: eachCoffee);
@@ -63,6 +63,7 @@ class CartPage extends StatelessWidget {
                               return const SizedBox(height: 15);
                             }),
                       ),
+                      const SizedBox(height: 20),
                       StandardButton(
                         text: "Pay now",
                         func: () {
