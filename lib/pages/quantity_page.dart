@@ -39,8 +39,8 @@ class _QuantityPageState extends State<QuantityPage> {
       for (int i = 0; i < cart.length; i++) {
         Coffee curr = cart[i];
         if (curr.name == coffee.name && curr.size == selectedSize) {
-          print("hello1");
           coffeeShop.addToQuantity(curr, quantity);
+          showSuccessDialog(context);
           return;
         }
       }
