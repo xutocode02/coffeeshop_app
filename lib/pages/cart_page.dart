@@ -7,13 +7,21 @@ import 'package:coffeeshop/models/coffee_shop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// IMPLEMENT FUNCTION FOR DELETION, and func for adding properly (in quantity page)
-
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void subtractCoffee({required Coffee coffee}) {
+      var coffeeShop = Provider.of<CoffeeShop>(context, listen: false);
+      int quant = int.parse(coffee.quantity);
+      if (quant > 1) {
+        coffeeShop.decrementQuantity(coffee);
+      } else {
+        coffeeShop.removeFromCart(coffee);
+      }
+    }
+
     return Consumer<CoffeeShop>(
         builder: (context, value, child) => Scaffold(
               backgroundColor: backgroundColor,
@@ -47,7 +55,7 @@ class CartPage extends StatelessWidget {
                                     "Size: ${eachCoffee.size} || Qty: ${eachCoffee.quantity}",
                                 icon: const Icon(Icons.delete),
                                 onTap: () {
-                                  print("Hello");
+                                  subtractCoffee(coffee: eachCoffee);
                                 },
                               );
                             },
@@ -58,7 +66,7 @@ class CartPage extends StatelessWidget {
                       StandardButton(
                         text: "Pay now",
                         func: () {
-                          print("hello");
+                          print("not implemented");
                         },
                       ),
                     ],

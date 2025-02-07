@@ -32,10 +32,19 @@ class _QuantityPageState extends State<QuantityPage> {
     }
 
     void addToCart(Coffee coffee) {
-      // gotta revise these lines when actually adding to cart
-      // coffee.size = selectedSize;
-      // coffee.quantity = quantity.toString();
       var coffeeShop = Provider.of<CoffeeShop>(context, listen: false);
+      List<Coffee> cart = coffeeShop.userCart;
+
+      // check if the same coffee type is already in the cart (name and size)
+      for (int i = 0; i < cart.length; i++) {
+        Coffee curr = cart[i];
+        if (curr.name == coffee.name && curr.size == selectedSize) {
+          print("hello1");
+          coffeeShop.addToQuantity(curr, quantity);
+          return;
+        }
+      }
+      // if the coffee type hasn't been in the cart yet
       Coffee currCoffee = Coffee(
         name: coffee.name,
         price: coffee.price,
@@ -43,7 +52,6 @@ class _QuantityPageState extends State<QuantityPage> {
         size: selectedSize,
         quantity: quantity.toString(),
       );
-
       coffeeShop.addToCart(currCoffee);
     }
 

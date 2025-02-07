@@ -48,4 +48,16 @@ class CoffeeShop extends ChangeNotifier {
     _cart.remove(coffee);
     notifyListeners();
   }
+
+  void decrementQuantity(Coffee coffee) {
+    int quant = int.parse(coffee.quantity);
+    coffee.quantity = (quant - 1).toString();
+    notifyListeners();
+  }
+
+  void addToQuantity(Coffee coffee, int addedQuant) {
+    int quant = int.parse(coffee.quantity);
+    coffee.quantity = (quant + addedQuant).toString();
+    notifyListeners();
+  }
 }
