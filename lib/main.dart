@@ -1,5 +1,6 @@
 import 'package:coffeeshop/models/coffee_shop.dart';
 import 'package:coffeeshop/pages/quantity_page.dart';
+import 'package:coffeeshop/pages/start_page.dart';
 import 'package:flutter/material.dart';
 import 'package:coffeeshop/pages/homePage.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
       create: (context) => CoffeeShop(),
       builder: (context, child) => MaterialApp(
         title: 'Flutter Demo',
-        initialRoute: "/home",
+        initialRoute: "/start",
         routes: {
+          "/start": (context) => const StartPage(),
           "/home": (context) => const Homepage(),
           "/quantity": (context) => const QuantityPage(),
         },
