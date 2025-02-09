@@ -1,16 +1,9 @@
 # coffeeshop
 
-A new Flutter project.
+One of my first Flutter projects.
 
-## Getting Started
+## The App
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app is highly inspired by an app Mitch Koko presented on his youtube channel.
+I didn't watch the full video, but most of the design work I used has been done by him.
+Here is a [link] (https://www.youtube.com/watch?v=RPvhoghXn54&t=839s) to his youtube video.
