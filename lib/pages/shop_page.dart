@@ -1,4 +1,5 @@
 import 'package:coffeeshop/components/coffee_tile.dart';
+import 'package:coffeeshop/components/drawer.dart';
 import 'package:coffeeshop/components/standard_app_bar.dart';
 import 'package:coffeeshop/const.dart';
 import 'package:coffeeshop/models/coffee.dart';
@@ -27,6 +28,7 @@ class ShopPage extends StatelessWidget {
         builder: (context, value, child) => Scaffold(
               backgroundColor: backgroundColor,
               appBar: const StandardAppBar(),
+              drawer: const MyDrawer(),
               body: Padding(
                 padding: const EdgeInsets.only(
                   left: 20,

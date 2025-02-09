@@ -1,3 +1,4 @@
+import 'package:coffeeshop/const.dart';
 import 'package:coffeeshop/models/coffee.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,8 @@ class CoffeeTile extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
+          // color: Colors.white,
+          color: backgroundTile,
         ),
         child: ListTile(
           leading: Image.asset(eachCoffee.imagePath),

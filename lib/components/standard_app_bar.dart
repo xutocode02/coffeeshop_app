@@ -8,7 +8,7 @@ class StandardAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: backgroundColor,
-      leading: const Icon(Icons.menu),
+      // leading: const Icon(Icons.menu),
     );
   }
 

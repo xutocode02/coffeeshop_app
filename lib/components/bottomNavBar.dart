@@ -1,3 +1,4 @@
+import 'package:coffeeshop/const.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -24,8 +25,8 @@ class BottomNavbar extends StatelessWidget {
         tabBorderRadius: 25,
         gap: 8,
         color: Colors.grey[500],
-        activeColor: Colors.grey[700],
-        tabBackgroundColor: Colors.grey.shade300,
+        activeColor: Colors.grey[800],
+        tabBackgroundColor: backgroundTile,
         tabs: const [
           GButton(
             icon: Icons.home,
